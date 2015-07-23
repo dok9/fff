@@ -4,7 +4,7 @@
 <mapper namespace="com.fff.dao.TestDao">
 
   <select id="getTest" parameterType="string" resultType="string">
-    SELECT 'tesValuet' as testColumn FROM dual
+    SELECT 'tesValuet' as testColumn FROM dual 
   </select>
  <!-- #{userId} -->
 </mapper>
