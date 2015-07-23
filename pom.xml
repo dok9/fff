@@ -149,7 +149,34 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	<build>
+	
+	
+	
+	
+<build>
+    <finalName>fff</finalName>
+    <plugins>
+        <plugin>
+           <groupId>org.apache.tomcat.maven</groupId>
+           <artifactId>tomcat7-maven-plugin</artifactId>
+           <version>2.2</version>
+           <configuration>
+                <url>http://www.dok9.xyz:8080/manager/text</url>
+                <path>/</path>
+                <username>fff</username>
+                <password>qlxkals500</password>
+           </configuration>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <configuration>
+                <failOnMissingWebXml>false</failOnMissingWebXml>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+	<!-- <build>
 		<plugins>
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>
@@ -185,6 +212,26 @@
 					<mainClass>org.test.int1.Main</mainClass>
 				</configuration>
 			</plugin>
+			
+			
+			
+			
+			
+<plugin>
+    <groupId>org.apache.tomcat.maven</groupId>
+    <artifactId>tomcat7-maven-plugin</artifactId>
+    <version>2.2</version>
+    <configuration>
+        <url>http://www.dok9.xyz/manager</url>
+        <username>fff</username>
+        <password>qlxkals500</password>
+        <path>/</path>
+    </configuration>
+</plugin>
+			
+			
+			
+			
 		</plugins>
-	</build>
+	</build> -->
 </project>
