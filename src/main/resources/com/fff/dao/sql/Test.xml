@@ -3,8 +3,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fff.dao.TestDao">
 
-  <select id="getTest" parameterType="string" resultType="string">
-    SELECT 'tesValuet' as testColumn FROM dual 
+  <select id="getTest" parameterType="string" resultType="com.fff.vo.TestVo">
+    SELECT 'ggde' as test1, 'tttt' as test2, 'tew2' as test3 FROM dual
+    UNION ALL
+    SELECT 'aaaa' as test1, 'tete' as test2, 'tew231' as test3 FROM dual
   </select>
  <!-- #{userId} -->
 </mapper>

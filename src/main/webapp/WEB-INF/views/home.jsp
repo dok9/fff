@@ -10,5 +10,16 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+
+123123
+123123
+${vo}
+  <c:forEach var="test" items="${vo.testList2}">
+ ${test.test1} <br />
+ ${test.test2} <br />
+ ${test.test3} <br />
+  </c:forEach> 
+
+
 </body>
 </html>
