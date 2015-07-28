@@ -42,6 +42,16 @@
 </filter>
 <filter-mapping>
     <filter-name>encodingFilter</filter-name>
-<url-pattern>*.do</url-pattern>
+<url-pattern>/</url-pattern>
 </filter-mapping>
+
+	<filter>
+		<filter-name>RESTful</filter-name>
+		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>RESTful</filter-name>
+		<servlet-name>appServlet</servlet-name>
+	</filter-mapping>
 </web-app>

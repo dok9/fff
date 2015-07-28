@@ -23,10 +23,16 @@
 			<p>
 				주소 : www.dok9.xyz/psytest/
 				<input type="hidden" id="_method" name="_method" value="get">
-				<input type="text" name="PSYID1" id="PSYID1"> / 
-				<input type="text" name="PSYID2" id="PSYID2"> 
+				<input type="text" name="SUBPATH1" id="SUBPATH1"> / 
+				<input type="text" name="SUBPATH2" id="SUBPATH2">
 			</p>
 			<p>비밀번호 : <input type="password" name="PASSWORD" id="PASSWORD"></p>
+			<p>타입 : 
+				<input type="radio" name="TYPE" value="A" checked="checked">A타입 - (1문제 1해설)
+				<input type="radio" name="TYPE" value="B">B타입 - (여러문제 1해설)
+			</p>
+			
+			<p>타이틀 :<br /><textarea rows="5" cols="50" name="TITLE" ID="TITLE"></textarea> </p>
 			<p>
 				<input type="button" value="등록" onclick="fnSubmit('put');"> 
 				<input type="button" value="수정" onclick="fnSubmit('post');">

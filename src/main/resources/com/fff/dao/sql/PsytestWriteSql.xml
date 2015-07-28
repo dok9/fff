@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fff.dao.PsytestWriteDao">
+
+  <select id="selectPSYTEST_MASTER" parameterType="Map" resultType="com.fff.command.PsytestMasterCommand">
+		SELECT 	SUBPATH1, SUBPATH2, TITLE, TYPE
+		FROM 	PSYTEST_MASTER
+		WHERE 	SUBPATH1 = #{SUBPATH1}
+		AND 	SUBPATH2 = #{SUBPATH2}
+  </select>
+  
+  
+ 
+</mapper>

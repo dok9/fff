@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fff.dao.PsytestMasterDao">
+
+  <select id="getExistCount" parameterType="Map" resultType="int">
+		SELECT 	COUNT(*) 
+		FROM 	PSYTEST_MASTER
+		WHERE 	SUBPATH1 = #{SUBPATH1}
+		AND 	SUBPATH2 = #{SUBPATH2}
+  </select>
+  
+  <insert id="insertPSYTEST_MASTER" parameterType="Map">
+		INSERT INTO PSYTEST_MASTER
+		(SUBPATH1, SUBPATH2, TITLE, PASSWORD, TYPE) 
+		VALUES 
+		(#{SUBPATH1}, #{SUBPATH2}, #{TITLE}, #{PASSWORD}, #{TYPE});
+  </insert>
+  
+ 
+</mapper>
