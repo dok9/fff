@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.fff.command.PsytestMasterCommand;
+import com.fff.command.PsytestWriteCommand;
 import com.fff.service.PsytestMasterService;
 import com.fff.service.PsytestWriteService;
 import com.fff.service.TestService;
@@ -55,13 +56,14 @@ public class PsytestWriteController {
 	}
 	
 	@RequestMapping(value = "/psytest/write", method = RequestMethod.PUT)
-	public String PsytestMasterPut(Locale locale, Model model, PsytestMasterCommand psytestMasterCommand) {
+	public String PsytestMasterPut(Locale locale, Model model, PsytestWriteCommand psytestWriteCommand) {
 		logger.info("/psytest/write -- PUT");
-		logger.info(psytestMasterCommand.toString());
+		logger.info(psytestWriteCommand.toString());
 		
-		
-		
-		return "psytest/master";
+		psytestWriteService.txwPsytestWritePut(model, psytestWriteCommand);
+		// [SUBPATH1=한글된다, SUBPATH2=한글된다, TITLE=null, QUESTNO=1, QUESTAS=ㅇㄴㄹㄴㅇㄹ, QUESTTEXT=ㄴㄹㅇㄴㅇㄹ, QUESTDESC=ㄴㅇㄴㅇㄹㄴㄹㅇ, PASSWORD=sdfsfd, no=[1, 2], EXAMNO=[1, 2], EXAMAS=[ㄴㅇㄹㅇㄴㄹ, ㄴㅇㄹㄴㅇㄹ], EXAMTEXT=[ㄴㅇㄹㄴㄹ, ㄴㄹㄴㅇㄹㄴㄹ], EXAMDESC=[ㄴㅇㄹㄴㅇㄹ, ㄴㅇㄹㄴㅇㄹ], NOTE=[ㄴㅇㄹㄴㅇㄹ, ㄴㅇㄹㄴㅇㄹ]]
+		//SUBPATH1, SUBPATH2, QUESTNO, QUESTAS, QUESTTEXT, QUESTDESC, QUESTPOINT, QUESTTYPE, QUESTIMG
+		return "psytest/write";
 	}
 	
 	@RequestMapping(value = "/psytest/write", method = RequestMethod.POST)

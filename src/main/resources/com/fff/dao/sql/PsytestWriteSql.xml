@@ -9,7 +9,45 @@
 		WHERE 	SUBPATH1 = #{SUBPATH1}
 		AND 	SUBPATH2 = #{SUBPATH2}
   </select>
+
+  <select id="getExistCntPSYTEST_MASTER" parameterType="Map" resultType="int">
+		SELECT 	COUNT(*)
+		FROM 	PSYTEST_MASTER
+		WHERE 	SUBPATH1 = #{SUBPATH1}
+		AND 	SUBPATH2 = #{SUBPATH2}
+  </select> 
+
+  <insert id="insertPSYTEST_QUESTION" parameterType="Map" useGeneratedKeys="true">
+	<selectKey resultType="int" keyProperty="QUESTNO" order="BEFORE">
+        SELECT IFNULL(MAX(A.QUESTNO+1),1) FROM PSYTEST_QUESTION A  WHERE A.SUBPATH1=#{SUBPATH1} AND A.SUBPATH2=#{SUBPATH2}
+	</selectKey>
+	
+		INSERT INTO PSYTEST_QUESTION
+		 (SUBPATH1, SUBPATH2, QUESTNO, QUESTAS, QUESTTEXT, QUESTDESC, QUESTPOINT, QUESTTYPE, QUESTIMG) 
+		VALUES 
+	 	(#{SUBPATH1}, #{SUBPATH2}, 
+	 	#{QUESTNO}, 
+	 	#{QUESTAS}, #{QUESTTEXT}, #{QUESTDESC}, 0, null, null)
+  </insert>
   
   
- 
+   <insert id="insertPSYTEST_EXAMPLE" parameterType="Map">
+	<selectKey resultType="int" keyProperty="EXAMNO" order="BEFORE">
+        SELECT IFNULL(MAX(A.EXAMNO+1),1) FROM PSYTEST_EXAMPLE A  WHERE A.SUBPATH1=#{SUBPATH1} AND A.SUBPATH2=#{SUBPATH2} AND A.QUESTNO = #{QUESTNO}
+	</selectKey>
+INSERT INTO PSYTEST_EXAMPLE
+ (SUBPATH1, SUBPATH2, QUESTNO, EXAMNO, EXAMAS, EXAMTEXT, EXAMDESC, EXAMTYPE, EXAMIMG) 
+VALUES 
+ (#{SUBPATH1}, #{SUBPATH2}, #{QUESTNO}, #{EXAMNO}, #{EXAMAS}, #{EXAMTEXT}, #{EXAMDESC}, null, null); 
+
+  </insert>
+  
+  
+   <insert id="insertPSYTEST_NOTE" parameterType="Map">
+INSERT INTO PSYTEST_NOTE
+ (SUBPATH1, SUBPATH2, QUESTNO, ANSWER, NOTE, EXAMIMG) 
+VALUES 
+ (#{SUBPATH1}, #{SUBPATH2}, #{QUESTNO}, #{EXAMNO}, #{NOTE}, null); 
+  </insert>
+
 </mapper>
